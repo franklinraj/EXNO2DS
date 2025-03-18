@@ -1,29 +1,81 @@
-# EXNO2DS
-# AIM:
-      To perform Exploratory Data Analysis on the given data set.
-      
-# EXPLANATION:
-  The primary aim with exploratory analysis is to examine the data for distribution, outliers and anomalies to direct specific testing of your hypothesis.
-  
-# ALGORITHM:
-STEP 1: Import the required packages to perform Data Cleansing,Removing Outliers and Exploratory Data Analysis.
+# Exp02-RollABall
+## Aim:
+To develop a 3D application for Roll A Ball in unity.
 
-STEP 2: Replace the null value using any one of the method from mode,median and mean based on the dataset available.
+## Procedure:
+### Step1:
+Create a new project.
 
-STEP 3: Use boxplot method to analyze the outliers of the given dataset.
+### Step 2:
+Click Heirarchy -> 3D object -> Select the plane -> 3DObject -> Sphere.
 
-STEP 4: Remove the outliers using Inter Quantile Range method.
+### Step 3:
+Define the physics properties of the surface (Rigidbody).
 
-STEP 5: Use Countplot method to analyze in a graphical method for categorical data.
+### Step 4:
+Assets -> Create -> # Script
 
-STEP 6: Use displot method to represent the univariate distribution of data.
+### Step 5:
+Create a folder name Coding and create a C# file to add the coding in it.
 
-STEP 7: Use cross tabulation method to quantitatively analyze the relationship between multiple variables.
+### Step 6:
+To add our C# Script file to our selected object, click on the C# Script file and drag it to our selected objects in the Hierarchy window nad run the application.
 
-STEP 8: Use heatmap method of representation to show relationships between two variables, one plotted on each axis.
+### Step 7:
+Stop.
 
-## CODING AND OUTPUT
-        <<INCLUDE YOUR CODING AND OUTPUT SCREENSHOTS>>
+## Program:
+```
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-# RESULT
-        <<INCLUDE YOUR RESULT HERE>>
+public class move : MonoBehaviour
+{
+    // Start is called before the first frame update
+    public float xForce=5.0f;
+    public float zForce=5.0f;
+    public float yForce=100.0f;
+
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+          float x = 0.0f, y = 0.0f, z = 0.0f;
+        if (Input.GetKey(KeyCode.A))
+        {
+           x = x - xForce; 
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+           x = x + xForce; 
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+           z = z + zForce; 
+        }
+        if (Input.GetKey(KeyCode.F))
+        {
+           z = z - zForce; 
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+           y = yForce;
+        }
+        
+        
+        GetComponent<Rigidbody>().AddForce(x,y,z);
+    
+        
+    }
+}
+```
+## Output:
+![alt text](<Screenshot 2025-03-11 120753.png>)
+
+## Result:
+Thus, a 3D application for RollABall objects in unity is developed successfully.
